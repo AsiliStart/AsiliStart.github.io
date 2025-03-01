@@ -1,4 +1,4 @@
-# 🌱 Asili Start – Private Review & Feedback  
+# 🌱 Asili Start – Feedback  
 
 Welcome to the **Asili Start** prototype! This is a **private preview** of our platform, designed to empower young entrepreneurs in **East Africa** by connecting them with **investors and funding opportunities**.  
 
