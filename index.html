@@ -149,21 +149,21 @@
 
     <!-- Tabs for Switching Between Mobile & Desktop -->
     <div class="tabs">
-        <button class="tab-button active" onclick="showTab('mobile')">📱 Mobile</button>
-        <button class="tab-button" onclick="showTab('desktop')">💻 Desktop</button>
+        <button class="tab-button" onclick="switchTab('mobile')">📱 Mobile</button>
+        <button class="tab-button" onclick="switchTab('desktop')">💻 Desktop</button>
     </div>
 
     <!-- Mobile Prototype -->
-    <div class="iframe-container active" id="mobile">
+    <div class="iframe-container" id="mobile">
         <div class="iframe-frame">
-            <iframe src="https://creatie.ai/prototype/153399531049084?hl=1&zs=1&pageId=M&layerId=2:09531&source=iframe_share" allowfullscreen></iframe>
+            <iframe id="mobile-frame" src="" allowfullscreen></iframe>
         </div>
     </div>
 
     <!-- Desktop Prototype -->
     <div class="iframe-container" id="desktop">
         <div class="iframe-frame">
-            <iframe src="https://creatie.ai/prototype/153399531049084?hl=1&st=1&pageId=M&layerId=1:0&source=iframe_share" allowfullscreen></iframe>
+            <iframe id="desktop-frame" src="" allowfullscreen></iframe>
         </div>
     </div>
 
@@ -173,14 +173,38 @@
     </footer>
 
     <script>
-        // Function to Toggle Tabs
-        function showTab(tab) {
+        // Define the prototype URLs
+        const mobileURL = "https://creatie.ai/prototype/153399531049084?hl=1&zs=1&pageId=M&layerId=2:09531&source=iframe_share";
+        const desktopURL = "https://creatie.ai/prototype/153399531049084?hl=1&st=1&pageId=M&layerId=1:0&source=iframe_share";
+
+        // Function to Switch Tabs with URL Update
+        function switchTab(tab) {
+            // Remove active class from all containers and buttons
             document.querySelectorAll('.iframe-container').forEach(el => el.classList.remove('active'));
             document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
-            
+
+            // Set active tab and update URL hash
             document.getElementById(tab).classList.add('active');
             event.target.classList.add('active');
+            window.location.hash = tab;  // Updates the URL
+
+            // Reload the iframe when switching
+            const iframe = document.getElementById(tab + "-frame");
+            iframe.src = (tab === "mobile") ? mobileURL : desktopURL;
         }
+
+        // Function to Load Correct Tab on Page Load
+        function loadTabFromURL() {
+            const hash = window.location.hash.substring(1); // Get tab name from URL
+            if (hash === "desktop") {
+                switchTab("desktop");
+            } else {
+                switchTab("mobile");
+            }
+        }
+
+        // Load the correct tab when the page loads
+        window.onload = loadTabFromURL;
     </script>
 
 </body>
