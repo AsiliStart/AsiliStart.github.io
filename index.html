@@ -7,12 +7,33 @@
     <style>
         /* Global Styles */
         body {
-            font-family: Arial, sans-serif;
+            font-family: "Arial", sans-serif;
             margin: 0;
             padding: 0;
             background-color: #F4F4F4;
             text-align: center;
             color: #333;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Floating Abstract SVGs */
+        .abstract {
+            position: absolute;
+            opacity: 0.1;
+            z-index: -1;
+        }
+
+        .abstract.one {
+            top: 10%;
+            left: 5%;
+            width: 100px;
+        }
+
+        .abstract.two {
+            bottom: 15%;
+            right: 8%;
+            width: 120px;
         }
 
         /* Header Styling */
@@ -23,6 +44,15 @@
             font-size: 26px;
             font-weight: bold;
             text-transform: uppercase;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Logo */
+        .logo {
+            height: 40px;
         }
 
         /* Tagline */
@@ -33,24 +63,59 @@
             font-style: italic;
         }
 
-        /* Embed container */
-        .iframe-container {
+        /* Tab Buttons */
+        .tabs {
             display: flex;
+            justify-content: center;
+            margin: 20px;
+        }
+
+        .tab-button {
+            background: #2E7D32;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 0 5px;
+            border-radius: 20px;
+            transition: 0.3s ease;
+        }
+
+        .tab-button:hover, .tab-button.active {
+            background: #1B5E20;
+        }
+
+        /* Frame Container */
+        .iframe-container {
+            display: none;
             justify-content: center;
             align-items: center;
             margin: 20px auto;
-            padding: 10px;
+            padding: 15px;
             background: white;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-            max-width: 850px;
+            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+            border-radius: 15px;
+            max-width: 900px;
+            position: relative;
+        }
+
+        .iframe-container.active {
+            display: flex;
+        }
+
+        /* Decorative Frame Design */
+        .iframe-frame {
+            padding: 10px;
+            background: linear-gradient(135deg, #2E7D32, #1B5E20);
+            border-radius: 12px;
         }
 
         iframe {
             width: 100%;
-            height: 450px;
-            border: 1px solid rgba(0, 0, 0, 0.1);
-            border-radius: 5px;
+            height: 500px;
+            border-radius: 10px;
+            border: none;
         }
 
         /* Footer */
@@ -65,35 +130,70 @@
         /* Responsive Design */
         @media (max-width: 850px) {
             .iframe-container {
-                width: 95%;
+                width: 90%;
             }
 
             iframe {
-                height: 350px;
+                height: 400px;
             }
         }
 
         @media (max-width: 500px) {
             iframe {
-                height: 300px;
+                height: 350px;
             }
         }
     </style>
 </head>
 <body>
 
-    <header>Asili Start</header>
+    <!-- Floating Abstracts for Design -->
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/63/Vector_pencil.svg" class="abstract one" alt="abstract design">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/SVG_Example_Star.svg" class="abstract two" alt="abstract design">
+
+    <!-- Header with Logo -->
+    <header>
+        <img src="logo.png" class="logo" alt="Asili Start Logo"> <!-- Replace with your logo -->
+        Asili Start
+    </header>
+
     <p class="tagline">Empowering Young Entrepreneurs in Africa 🌍</p>
 
-    <div class="iframe-container">
-        <iframe src="https://creatie.ai/prototype/153399531049084?hl=1&st=1&pageId=M&layerId=1:0&source=iframe_share" 
-                allowfullscreen>
-        </iframe>
+    <!-- Tabs for Switching Between Mobile & Desktop -->
+    <div class="tabs">
+        <button class="tab-button active" onclick="showTab('mobile')">📱 Mobile</button>
+        <button class="tab-button" onclick="showTab('desktop')">💻 Desktop</button>
     </div>
 
+    <!-- Mobile Prototype -->
+    <div class="iframe-container active" id="mobile">
+        <div class="iframe-frame">
+            <iframe src="https://creatie.ai/prototype/153399531049084?hl=1&zs=1&pageId=M&layerId=2:09531&source=iframe_share" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <!-- Desktop Prototype -->
+    <div class="iframe-container" id="desktop">
+        <div class="iframe-frame">
+            <iframe src="https://creatie.ai/prototype/153399531049084?hl=1&st=1&pageId=M&layerId=1:0&source=iframe_share" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <!-- Footer -->
     <footer>
         &copy; 2025 Asili Start | Building Africa’s Future 🚀
     </footer>
+
+    <script>
+        // Function to Toggle Tabs
+        function showTab(tab) {
+            document.querySelectorAll('.iframe-container').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+            
+            document.getElementById(tab).classList.add('active');
+            event.target.classList.add('active');
+        }
+    </script>
 
 </body>
 </html>
