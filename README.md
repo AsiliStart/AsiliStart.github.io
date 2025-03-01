@@ -26,7 +26,7 @@ We are collecting **user feedback** to improve Asili Start. Please focus on:
 ## 📩 How to Share Your Feedback  
 Please use **one of the following methods**:  
 
-1️⃣ **Email Us:** Samuelkangethe825@gmail.com@gmail.com 
+1️⃣ **Email Us:** Samuelkangethe825@gmail.com
 2️⃣ **GitHub Issues:** Open a new issue in this repo with your comments.  
 
 🔹 **All feedback is highly appreciated and will help shape the platform before launch!**  
