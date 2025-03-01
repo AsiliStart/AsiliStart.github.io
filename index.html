@@ -14,26 +14,6 @@
             text-align: center;
             color: #333;
             overflow-x: hidden;
-            position: relative;
-        }
-
-        /* Floating Abstract SVGs */
-        .abstract {
-            position: absolute;
-            opacity: 0.1;
-            z-index: -1;
-        }
-
-        .abstract.one {
-            top: 10%;
-            left: 5%;
-            width: 100px;
-        }
-
-        .abstract.two {
-            bottom: 15%;
-            right: 8%;
-            width: 120px;
         }
 
         /* Header Styling */
@@ -96,7 +76,7 @@
             background: white;
             box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
             border-radius: 15px;
-            max-width: 900px;
+            max-width: 1500px;
             position: relative;
         }
 
@@ -113,9 +93,19 @@
 
         iframe {
             width: 100%;
-            height: 500px;
             border-radius: 10px;
             border: none;
+        }
+
+        /* Specific Sizes for Mobile & Desktop */
+        #mobile iframe {
+            width: 375px;
+            height: 700px;
+        }
+
+        #desktop iframe {
+            width: 1440px;
+            height: 900px;
         }
 
         /* Footer */
@@ -133,23 +123,21 @@
                 width: 90%;
             }
 
-            iframe {
-                height: 400px;
+            #desktop iframe {
+                width: 100%;
+                height: 700px;
             }
         }
 
         @media (max-width: 500px) {
-            iframe {
-                height: 350px;
+            #mobile iframe {
+                width: 100%;
+                height: 600px;
             }
         }
     </style>
 </head>
 <body>
-
-    <!-- Floating Abstracts for Design -->
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/63/Vector_pencil.svg" class="abstract one" alt="abstract design">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/SVG_Example_Star.svg" class="abstract two" alt="abstract design">
 
     <!-- Header with Logo -->
     <header>
