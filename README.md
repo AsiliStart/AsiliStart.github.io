@@ -9,7 +9,8 @@ Welcome to the **Asili Start** prototype! This is a **private preview** of our p
 ## 🔗 Prototype Preview  
 You can access the prototype here:  
 
-👉 **[View Asili Start Prototype](https://creatie.ai/prototype/153399531049084?hl=1&st=1&pageId=M&layerId=1:0&source=iframe_share)**  
+👉 **[View Asili Start Prototype](https://creatie.ai/prototype/153399531049084?hl=1&st=1&pageId=M&layerId=1:0&source=iframe_share)** For Desktop
+👉 **[View Asili Start Prototype](https://creatie.ai/prototype/153579249692242?hl=1&zs=1&pageId=51:3353&layerId=51:7570&source=iframe_share)** For Mobile
 
 ---
 
